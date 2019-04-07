@@ -1,0 +1,146 @@
+
+
+.wrapper {
+	background: lavender;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+h1 {
+	font-family: 'Poppins', sans-serif;
+	margin-top: 20px;
+}
+
+h2 {
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
+}
+
+.game {
+		height: 800px;
+		width: 1000px;
+		background: lightblue;
+		padding: 20px;
+		border-radius: 8px;
+		box-shadow: 8px 8px 26px 0 rgba(50, 50, 50, 0.5);
+		margin: 20px 10px 10px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: center;
+	
+	.card {
+			height: 160px;
+			width: 160px;
+			margin: 10px 10px;
+			background: rgba(50, 50, 50, 0.8);
+			color: black;
+			font-size: 0;
+			border-radius: 8px;
+			box-shadow: 5px 2px 25px 0 rgba(50, 50, 50, 0.5);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+		&:hover {
+	        transform: scale(1.1);
+	        transition: .3 ease;
+		}
+
+		&.clicked {
+			font-size: 50px;
+			background: rgba(255,255,0,0.5);
+			transition: .2s ease;
+		}
+
+		&.celebrate {
+			font-size: 50px;
+			background: rgba(0,255,0,0.5);
+			transition: .3s ease;
+			animation-name: flipInY;
+		}
+
+		&.matched {
+			font-size: 50px;
+			background: lightblue;
+			transition: .3s ease;
+		}
+
+		&.wrong {
+			font-size: 50px;
+			background: rgba(255,0,0,0.5);
+			transition: .3s ease;
+		}
+
+		&.winner {
+			background: rgba(255,192,203,0.8);
+			transition: all 1.5s ease-in-out;
+			transform: rotateY(180deg);
+		}
+	}
+}
+
+@media (max-width: #{$tablet}) {
+h1 {
+	margin-top: 20px;
+}
+
+.game {
+		height: 700px;
+		width: 875px;
+		padding: 20px;
+		margin: 20px 10px 10px;
+		
+	.card {
+			height: 140px;
+			width: 140px;
+			margin: 10px 10px;
+	}
+}
+}
+
+@media (max-width: #{$landscape}) {
+.game {
+		height: 680px;
+		width: 675px;
+		padding: 20px;
+		margin: 20px 10px 10px;
+		
+	.card {
+			height: 110px;
+			width: 110px;
+			margin: 10px 10px;
+		
+		&.clicked,
+		&.celebrate,
+		&.matched,
+		&.wrong	 {
+			font-size: 40px;
+		}
+	}
+}
+}
+
+@media (max-width: #{$phone}) {
+.game {
+		height: 562.5px;
+		width: 450px;
+		padding: 20px;
+		margin: 20px 10px 10px;
+		
+	.card {
+			height: 80px;
+			width: 80px;
+			margin: 7px 7px;
+	
+		&.clicked,
+		&.celebrate,
+		&.matched,
+		&.wrong	 {
+			font-size: 30px;
+		}
+	}
+}
+}
