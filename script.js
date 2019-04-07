@@ -53,17 +53,6 @@ $(document).ready(() => {
 					$(matchedSymbols).addClass('winner');
 				}
 
-				else if (matchedSymbols.length == 20 && counter === 30) {	
-					setTimeout(function() {
-						let reload = confirm (`Congratulations, ${userName}! You've beaten my memory game! And in less than 30 clicks! Amazing job!`)
-						if (reload) {
-						  window.location.reload();
-						} else {				  
-						};
-					}, 1400);
-					$(matchedSymbols).addClass('winner');
-				}
-
 				else if (matchedSymbols.length == 20 && counter <= 40) {	
 					setTimeout(function() {
 						let reload = confirm (`Congratulations, ${userName}! You've beaten my memory game admirably! Good job, but can you do it in even less clicks?`)
