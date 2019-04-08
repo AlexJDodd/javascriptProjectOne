@@ -32,7 +32,7 @@ $(document).ready(() => {
 
 			if (matchedSymbols.length == 20 && counter <= 20) {	
 				setTimeout(function() {
-					let reload = confirm (`Congratulations, ${userName}! You've beaten my memory game with a perfect score! How is that even possible?!`)
+					let reload = confirm (`Congratulations, ${userName}! You've beaten my memory game with a perfect score! How is that even possible?! I recommend you stop cheating.`)
 					if (reload) {
 					  window.location.reload();
 					} else {				  
@@ -43,7 +43,7 @@ $(document).ready(() => {
 
 			else if (matchedSymbols.length == 20 && counter <= 30) {	
 				setTimeout(function() {
-					let reload = confirm (`Congratulations, ${userName}! You've beaten my memory game, And in only ${counter} clicks! Amazing job!`)
+					let reload = confirm (`Congratulations, ${userName}! You've beaten my memory game, and in only ${counter} clicks! Amazing job! Want to try again?`)
 					if (reload) {
 					  window.location.reload();
 					} else {				  
