@@ -1,6 +1,6 @@
 $(document).ready(() => {
 
-	let userName = prompt(`Hello and welcome to my memory game! Please enter your name and proceed to uncover the cards, and see how quickly you can uncover all of the pairs!`);
+	let userName = prompt(`Hello and welcome to my memory game! Please enter your name and proceed, to uncover the cards to see how quickly you can uncover all of the pairs!`);
 
 	const list = $('ul');
 	const count = $('ul li').length;
@@ -11,10 +11,9 @@ $(document).ready(() => {
 	}
 
 	let counter = 0;
-
-		$("ul li").on('click', function() {
-
-			counter = counter + 1;
+		
+	$("ul li").on('click', function() {
+		counter = counter + 1;
 		$('.counter').text(counter);
 
 		$(this).addClass("clicked");
@@ -26,61 +25,50 @@ $(document).ready(() => {
 			$(clickedSymbols).removeClass("clicked").addClass("celebrate");
 			setTimeout(function() {
 				$(clickedSymbols).addClass("matched");
-			}, 800);
+			}, 900);
 		
 			let matchedSymbols = $('li').filter('.celebrate');
 
+			let winnerAlert = (winnerMessage) => {
+				setTimeout(function() {
+					let reload = confirm(`${winnerMessage}`)
+					if (reload) {
+					  window.location.reload();
+					} else {				  
+					};
+					}, 2000);
+				$(matchedSymbols).addClass('winner');
+			}
+
 			if (matchedSymbols.length == 20 && counter <= 20) {	
-				setTimeout(function() {
-					let reload = confirm (`Congratulations, ${userName}! You've beaten my memory game with a perfect score! How is that even possible?! I recommend you stop cheating.`)
-					if (reload) {
-					  window.location.reload();
-					} else {				  
-					};
-				}, 1400);
-				$(matchedSymbols).addClass('winner');
+				let winnerMessage = `Congratulations, ${userName}! You've beaten my memory game with a perfect score! How is that even possible?! I recommend you stop cheating.`
+				winnerAlert(winnerMessage);
 			}
 
-			else if (matchedSymbols.length == 20 && counter <= 30) {	
-				setTimeout(function() {
-					let reload = confirm (`Congratulations, ${userName}! You've beaten my memory game, and in only ${counter} clicks! Amazing job! Want to try again?`)
-					if (reload) {
-					  window.location.reload();
-					} else {				  
-					};
-				}, 1400);
-				$(matchedSymbols).addClass('winner');
+			else if (matchedSymbols.length == 20 && counter <= 30) {
+				let winnerMessage = `Congratulations, ${userName}! You've beaten my memory game, and in only ${counter} clicks! Amazing job! Want to try again?`
+				winnerAlert(winnerMessage);
 			}
 
-			else if (matchedSymbols.length == 20 && counter <= 40) {	
-				setTimeout(function() {
-					let reload = confirm (`Congratulations, ${userName}! You've beaten my memory game, and it only took you ${counter} clicks. Good job, but can you do it in even less?`)
-					if (reload) {
-					  window.location.reload();
-					} else {
-					};
-				}, 1400);
-				$(matchedSymbols).addClass('winner');
+			else if (matchedSymbols.length == 20 && counter <= 40) {
+				let winnerMessage = `Congratulations, ${userName}! You've beaten my memory game, and it only took you ${counter} clicks. Good job, but can you do it in even less?`
+				winnerAlert(winnerMessage);
 			}
 
 			else if (matchedSymbols.length == 20 && counter > 40) {	
-				setTimeout(function() {
-				let reload = confirm (`Congratulations, ${userName}! You've beaten my memory game! But it took you ${counter} clicks. Maybe you want to try again?`)
-				if (reload) {
-				  window.location.reload();
-				} else {				  
-				};
-				}, 1400);
-				$(matchedSymbols).addClass('winner');
+				let winnerMessage = `Congratulations, ${userName}! You've beaten my memory game! But it took you ${counter} clicks. Maybe you want to try again?`
+				winnerAlert(winnerMessage);
 			}
+
+			
 		}
 
-		else if(clickedSymbols[0].type !== clickedSymbols[1].type) {
+		else {
 
 			$(clickedSymbols).removeClass("clicked").addClass("wrong")
 			setTimeout(function() {
 				$(clickedSymbols).removeClass("wrong")
-			}, 850);
+			}, 900);
 		}
 	});
 });
