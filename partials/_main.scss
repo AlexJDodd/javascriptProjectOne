@@ -1,52 +1,63 @@
+html {
+	font-size: 125%;
+}
+
 .wrapper {
-	background: lavender;
-	width: 100vw;
-	height: 100vh;
+	max-width: 1600px;
+}
+
+body {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
 	align-items: center;
+	background: lavender;
 }
 
 h1 {
-	font-family: 'Poppins', sans-serif;
-	margin-top: 20px;
+	margin: 20px auto;
+	font-family: 'Stylish', sans-serif;
+	font-size: 3rem;
+	text-align: center;
 }
 
 h2 {
+	margin: 5px auto;
 	font-family: 'Poppins', sans-serif;
-	margin: 0;
+	font-size: 1rem;
+	text-align: center;
 }
 
 .game {
-		height: 800px;
-		width: 1000px;
-		background: lightblue;
-		padding: 20px;
-		border-radius: 8px;
-		box-shadow: 8px 8px 26px 0 rgba(50, 50, 50, 0.5);
-		margin: 20px 10px 10px;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-around;
-		align-items: center;
+	margin: 0 auto;
+	height: 80vh;
+	width: 80vw;
+	max-width: 1000px;
+	background: lightblue;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 8px 8px 26px 0 rgba(50, 50, 50, 0.5);
+	margin: 20px 10px 10px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
 	
 	.card {
-			height: 160px;
-			width: 160px;
-			margin: 10px 10px;
-			background: rgba(50, 50, 50, 0.8);
-			color: black;
-			font-size: 0;
-			border-radius: 8px;
-			box-shadow: 5px 2px 25px 0 rgba(50, 50, 50, 0.5);
-			display: flex;
-			justify-content: center;
-			align-items: center;
+		height: calc(25% - 20px);
+		width: calc(20% - 20px);
+		margin: 10px;
+		background: rgba(50, 50, 50, 0.8);
+		color: black;
+		font-size: 0;
+		border-radius: 8px;
+		box-shadow: 5px 2px 25px 0 rgba(50, 50, 50, 0.5);
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
 		&:hover {
-	        transform: scale(1.1);
-	        transition: .5 ease;
+			transform: scale(1.1);
+			transition: .5 ease;
 		}
 
 		&.clicked {
@@ -82,36 +93,35 @@ h2 {
 	}
 }
 
-@media (max-width: #{$tablet}) {
+@media (max-width: 940px) {
 h1 {
 	margin-top: 20px;
 }
 
 .game {
-		height: 700px;
-		width: 875px;
-		padding: 20px;
-		margin: 20px 10px 10px;
+	width: 90vw;
+	padding: 20px;
 		
 	.card {
-			height: 140px;
-			width: 140px;
-			margin: 10px 10px;
+		height: calc(20% - 20px);
+		width: calc(25% - 40px);
 	}
 }
 }
 
-@media (max-width: #{$landscape}) {
+@media (max-width: 767px) {
+h1 {
+	font-size: 2.5rem;
+}
+
 .game {
-		height: 680px;
-		width: 675px;
-		padding: 20px;
-		margin: 20px 10px 10px;
+	padding: 20px;
+	margin: 20px 10px 10px;
 		
 	.card {
-			height: 110px;
-			width: 110px;
-			margin: 10px 10px;
+		height: calc(20% - 14px);
+		width: calc(25% - 14px);
+		margin: 7px 7px;
 		
 		&.clicked,
 		&.celebrate,
@@ -123,24 +133,39 @@ h1 {
 }
 }
 
-@media (max-width: #{$phone}) {
+@media (max-width: 540px) {
+h1 {
+	font-size: 2rem;
+}
+
 .game {
-		height: 562.5px;
-		width: 450px;
-		padding: 20px;
-		margin: 20px 10px 10px;
+	height: 50vh;
+	padding: 20px;
+	margin-top: 80px;
 		
 	.card {
-			height: 80px;
-			width: 80px;
-			margin: 7px 7px;
-	
+		margin: 3px 3px;
+
 		&.clicked,
 		&.celebrate,
 		&.matched,
 		&.wrong	 {
 			font-size: 30px;
 		}
+	}
+}
+}
+
+@media (max-width: 380px) {
+h1 {
+	font-size: 1.6rem;
+}
+
+.game {
+	height: 40vh;
+	
+	.card {
+
 	}
 }
 }

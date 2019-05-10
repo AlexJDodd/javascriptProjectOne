@@ -1,6 +1,6 @@
 $(document).ready(() => {
 
-	let userName = prompt(`Hello and welcome to my memory game! Please enter your name and proceed, to uncover the cards to see how quickly you can uncover all of the pairs!`);
+	// let userName = prompt(`Hello and welcome to my memory game! Please enter your name and proceed, to uncover the cards to see how quickly you can uncover all of the pairs!`);
 
 	const list = $('ul');
 	const count = $('ul li').length;
@@ -8,7 +8,7 @@ $(document).ready(() => {
 	for (let i = 1; i < count; i++) {
 		let j = Math.floor(Math.random() * count);
 		$('li', list).eq(j).appendTo(list);
-	}
+	};
 
 	let counter = 0;
 		
@@ -33,7 +33,7 @@ $(document).ready(() => {
 				setTimeout(function() {
 					let reload = confirm(`${winnerMessage}`)
 					if (reload) {
-					  window.location.reload();
+						window.location.reload();
 					} else {				  
 					};
 					}, 2000);
@@ -59,8 +59,6 @@ $(document).ready(() => {
 				let winnerMessage = `Congratulations, ${userName}! You've beaten my memory game! But it took you ${counter} clicks. Maybe you want to try again?`
 				winnerAlert(winnerMessage);
 			}
-
-			
 		}
 
 		else {
