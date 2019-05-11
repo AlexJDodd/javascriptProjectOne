@@ -1,6 +1,6 @@
 $(document).ready(() => {
 
-	let userName = prompt(`Hello and welcome to my memory game! Please enter your name and proceed, to uncover the cards to see how quickly you can uncover all of the pairs!`);
+	let userName = prompt(`Hello and welcome to my memory game! Please enter your name and proceed to uncover the cards to see how quickly you can find all of the pairs!`);
 
 	const list = $('ul');
 	const count = $('ul li').length;
