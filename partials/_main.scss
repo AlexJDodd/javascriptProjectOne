@@ -1,14 +1,15 @@
 html {
 	font-size: 125%;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .wrapper {
-	max-width: 1600px;
+	max-width: 1345px;
 }
 
 body {
 	display: flex;
-	flex-direction: column;
+	justify-content: center;
 	align-items: center;
 	background: lavender;
 }
@@ -16,28 +17,30 @@ body {
 h1 {
 	margin: 20px auto;
 	color: #323232;
-	font-family: 'Stylish', sans-serif;
 	font-size: 3rem;
+	font-family: 'Raleway', sans-serif;
+	letter-spacing: -1px;
 	text-align: center;
+	text-shadow: -2px 2px 2px #323232;
 }
 
 h2 {
 	margin: 5px auto;
 	color: #323232;
-	font-family: 'Poppins', sans-serif;
 	font-size: 1.4rem;
 	text-align: center;
 }
 
 .game {
+	position: relative;
 	margin: 0 auto;
-	height: 80vh;
-	width: 80vw;
+	height: 700px;
+	width: 800px;
 	max-width: 1000px;
 	background: lightblue;
 	padding: 20px;
 	border-radius: 8px;
-	box-shadow: 8px 8px 26px 0 rgba(50, 50, 50, 0.5);
+	box-shadow: -15px 15px 5px rgba(50, 50, 50, .5);
 	margin: 20px 10px 10px;
 	display: flex;
 	flex-wrap: wrap;
@@ -49,10 +52,10 @@ h2 {
 		width: calc(20% - 20px);
 		margin: 10px;
 		background: rgba(50, 50, 50, 0.8);
-		color: black;
+		color: rgba(30, 30, 30, 1);
 		font-size: 0;
 		border-radius: 8px;
-		box-shadow: 5px 2px 25px 0 rgba(50, 50, 50, 0.5);
+		box-shadow: -5px 5px 5px rgba(50, 50, 50, .5);
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -95,7 +98,41 @@ h2 {
 	}
 }
 
-@media (max-width: 940px) {
+.instructions-box {
+	position: absolute;
+	left: 250px;
+	top: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	opacity: .9;
+	padding: 30px;
+	height: 350px;
+	width: 540px;
+	border-radius: 8px;
+	box-shadow: 5px 2px 25px 0 rgba(50, 50, 50, 0.5);
+	background-color: white;
+
+	.instructions {
+		margin: 0;
+		font-size: 1.6rem;
+		color: black;
+		text-align: center;
+	}
+
+	input[type=text] {
+		border: none;
+		border-bottom: 4px solid lightblue;
+		text-align: center;
+	}
+
+	.submitName {
+		// display: none;
+	}
+}
+
+@media (max-width: 980px) {
 h1 {
 	margin-top: 20px;
 }
@@ -123,7 +160,8 @@ h2 {
 .game {
 	padding: 20px;
 	margin: 20px 10px 10px;
-		
+	height: 70vh;
+	
 	.card {
 		height: calc(20% - 14px);
 		width: calc(25% - 14px);
@@ -141,13 +179,15 @@ h2 {
 
 @media (max-width: 540px) {
 h1 {
-	font-size: 2rem;
+	font-size: 1.8rem;
 }
 
 .game {
-	height: 50vh;
+	height: 60vh;
+	width: 100vw;
 	padding: 20px;
 	margin-top: 80px;
+
 		
 	.card {
 		margin: 3px 3px;
@@ -168,6 +208,11 @@ h1 {
 }
 
 .game {
-	height: 60vh;
+	height: 50vh;
+
+	.card {
+		margin: 1px;
+	}
+
 }
 }
