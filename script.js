@@ -21,12 +21,11 @@ memory.randomizeTiles = () => {
 }
 
 memory.alertWinner = (winnerMessage) => {
-	const { matched } = memory
 	setTimeout(() => {
 		const reload = confirm(`${winnerMessage}`)
 		reload ? window.location.reload() : null 
 	}, 2000)
-	matched.addClass('winner')
+	memory.matched.addClass('winner')
 }
 
 memory.assessWinner = () => {
@@ -46,40 +45,50 @@ memory.assessWinner = () => {
 	}
 }
 
-memory.checkMatch = () => {
-	const { $clicked, assessWinner } = memory
-	if ($clicked[0].type === $clicked[1].type) {
-		$clicked.removeClass("clicked").addClass("celebrate");
-		setTimeout(() => {
-			$clicked.addClass("matched");
-		}, 1000);
-		memory.matched = $('li').filter('.celebrate');
-		assessWinner()
+memory.animateWrong = (cell) => {
+	cell.removeClass(`clicked`).addClass(`wrong`)
+	setTimeout(() => {
+		cell.removeClass(`wrong`)
+	}, 1000)
+}
+
+memory.animateMatch = (cell) => {
+	cell.removeClass(`clicked`).addClass(`celebrate`);
+	setTimeout(() => {
+		cell.addClass(`matched`);
+	}, 1000);
+	memory.matched = $(`li`).filter(`.celebrate`);
+	memory.assessWinner()
+}
+
+memory.checkMatch = (cell) => {
+	if (cell[0].type === cell[1].type) {
+		memory.animateMatch(cell)		
 	}
 	else {
-		$clicked.removeClass("clicked").addClass("wrong")
-		setTimeout(function () {
-			$clicked.removeClass("wrong")
-		}, 1000)
+		memory.animateWrong(cell)
 	}
 }
 
 memory.filterClicked = () => {
-	const clicked = memory.$listItem.filter('.clicked')
-	memory.$clicked = $(clicked)
-	clicked.length > 1 ? memory.checkMatch() : null
+	const $clickedCell = $(memory.$listItem.filter(`.clicked`))
+	$clickedCell.length > 1 ? memory.checkMatch($clickedCell) : null
 }
 
-memory.addCounter = function() {
-	let { counter, $counter, filterClicked } = memory
-	memory.counter = counter + 1
-	$counter.text(memory.counter)
-	$(this).addClass(`clicked`)
-	filterClicked($(this))
+memory.addToCounter = function() {
+	const cell = $(this)
+	if (cell.hasClass(`clicked`) || cell.hasClass(`celebrate`) || cell.hasClass(`wrong`)) {
+		null // do nothing 
+	} else {
+		memory.counter = memory.counter + 1
+		memory.$counter.text(memory.counter)
+		cell.addClass(`clicked`)
+		memory.filterClicked()
+	}
 }
 
 memory.onClick = () => {
-	memory.$listItem.on('click', memory.addCounter)
+	memory.$listItem.on(`click`, memory.addToCounter)
 }
 
 memory.init = () => {
@@ -89,5 +98,5 @@ memory.init = () => {
 }
 
 $(() => {
-	memory.init();
-});
+	memory.init()
+})
